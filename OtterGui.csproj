@@ -19,6 +19,7 @@
         <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);MSB3277</MSBuildWarningsAsMessages>
         <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <Platforms>AnyCPU;x64;x86</Platforms>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -26,7 +27,27 @@
         <DefineConstants>DEBUG;TRACE;PROFILING</DefineConstants>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+        <DebugType>full</DebugType>
+        <DefineConstants>DEBUG;TRACE;PROFILING</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <DebugType>full</DebugType>
+        <DefineConstants>DEBUG;TRACE;PROFILING</DefineConstants>
+    </PropertyGroup>
+
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <DefineConstants>PROFILING</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+        <DebugType>pdbonly</DebugType>
+        <DefineConstants>PROFILING</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
         <DebugType>pdbonly</DebugType>
         <DefineConstants>PROFILING</DefineConstants>
     </PropertyGroup>
@@ -52,7 +73,6 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-        <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
     </ItemGroup>
 
     <ItemGroup>
